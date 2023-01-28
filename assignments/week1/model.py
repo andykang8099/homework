@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class LinearRegression:
     """
     A linear regression model that uses the closed-form solution to derive the parameters
