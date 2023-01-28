@@ -2,7 +2,7 @@ import numpy as np
 
 class LinearRegression:
     """
-    A linear regression model that uses the closed-form solution to derive the parameters
+    A linear regression model that uses the closed-form solution to derive the parameters.
     """
     w: np.ndarray
     b: float
