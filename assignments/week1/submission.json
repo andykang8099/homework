@@ -2,13 +2,13 @@
     "assignment_name": "Assignment 1",
     "contributors": [
         {
-            "name": "Jordan Matelsky",
-            "pennkey": "matelsky"
+            "name": "Yuzhuo Kang",
+            "pennkey": "yuzhuok"
         }
     ],
     "sources": [
-        "https://example.com",
-        "Conversations with TA (include TA's name)",
-        "LLM (include information about the LLM and how it was used)"
+        "W2D1 worksheet (analytical solution of linear regression, the derivation of parameters, and the singulatiy check on matrix)",
+        "https://www.enjoyalgorithms.com/blog/need-of-feature-scaling-in-machine-learning (the reason to conduct feature scaling)",
+        "https://towardsdatascience.com/implementing-linear-regression-with-gradient-descent-from-scratch-f6d088ec1219 (analytical solution of partial derivative and gradient of parameters, the basic structure of for loop in gradient descent)"
     ]
 }

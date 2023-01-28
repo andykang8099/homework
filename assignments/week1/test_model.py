@@ -16,7 +16,6 @@ model_parametrize = pytest.mark.parametrize(
     "model", [LinearRegression, GradientDescentLinearRegression]
 )
 
-
 @model_parametrize
 def test_has_correct_attributes(model):
     """
