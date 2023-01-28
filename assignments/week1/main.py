@@ -46,7 +46,7 @@ def main():
     X_train, X_test, y_train, y_test = get_housing_data()
 
     # Create a linear regression model:
-    #lr = LinearRegression()
+    # lr = LinearRegression()
     lr = LinearRegression()
     # Fit the model to the training data:
     lr.fit(X_train, y_train)

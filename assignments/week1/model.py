@@ -1,19 +1,21 @@
 import numpy as np
 
+
 class LinearRegression:
     """
     A linear regression model that uses the closed-form solution to derive the parameters.
     """
+
     w: np.ndarray
     b: float
 
     def __init__(self):
         """
-        initialize the parameters weight and bias 
+        initialize the parameters weight and bias
 
-        Arguments: 
+        Arguments:
             None
-        
+
         Returns:
             None
 
@@ -21,7 +23,7 @@ class LinearRegression:
         self.w = None
         self.b = None
 
-    def fit(self, X: np.ndarray, y: np.ndarray) -> None :
+    def fit(self, X: np.ndarray, y: np.ndarray) -> None:
         """
         This is the method for fitting the data using the analytical solution result.
 
@@ -42,7 +44,6 @@ class LinearRegression:
             print("LinAlgError. Matrix is Singular. No analytical solution.")
         self.w = params[:-1]
         self.b = params[-1]
-
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         """
@@ -68,7 +69,7 @@ class GradientDescentLinearRegression(LinearRegression):
         self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
     ) -> None:
         """
-        This part is the data fitting and model training part with the gradient descent method. For 
+        This part is the data fitting and model training part with the gradient descent method. For
         the analytical solution of gradient descent, I use the code from the following article as reference.
         https://towardsdatascience.com/implementing-linear-regression-with-gradient-descent-from-scratch-f6d088ec1219
 
