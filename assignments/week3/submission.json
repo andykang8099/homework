@@ -2,13 +2,12 @@
     "assignment_name": "MLP",
     "contributors": [
         {
-            "name": "Jordan Matelsky",
-            "pennkey": "matelsky"
+            "name": "Yuzhuo Kang",
+            "pennkey": "yuzhuok"
         }
     ],
     "sources": [
-        "https://example.com",
-        "Conversations with TA (include TA's name)",
-        "LLM (include information about the LLM and how it was used)"
+        "W3D1 notebook (Part 1 code on neural net construction",
+        "https://stackoverflow.com/questions/63779798/adding-xavier-initiliazation-in-pytorch(how to initialize the weight with Xavier initialization)"
     ]
 }

@@ -12,7 +12,9 @@ def create_model(input_dim: int, output_dim: int) -> MLP:
         hidden_dims (list): The dimensions of the hidden layers.
 
     Returns:
-        MLP: The created model.
+        MLP (model): The created model.
 
     """
-    return MLP(input_dim, 32, output_dim, 1, torch.nn.ReLU, torch.nn.init.ones_)
+    return MLP(
+        input_dim, 64, output_dim, 1, torch.nn.ReLU, torch.nn.init.xavier_uniform_
+    )
