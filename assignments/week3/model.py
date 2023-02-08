@@ -80,7 +80,7 @@ class MLP(torch.nn.Module):
         """
         # flatten the tensor
         x = x.view(x.shape[0], -1)
-        # for each layer, apply the activation function to it and return
+        # for each layer, apply the activation function to it and return the prediction
         for layer in self.layers:
             x = self.actv(layer(x))
         x = self.out(x)
