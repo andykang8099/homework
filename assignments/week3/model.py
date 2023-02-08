@@ -12,14 +12,14 @@ class MLP(torch.nn.Module):
     Attributes
     ----------
     input size: int
-        the input shape (features) of the images 
+        the input shape (features) of the images
     hidden_size: int
         the The number of neurons H in the hidden layer
     num_classes: int
         The number of classes C
-    activation (torch.nn.func): 
+    activation (torch.nn.func):
         The activation function to use in the hidden layer.
-    initializer (torch.nn.init): 
+    initializer (torch.nn.init):
         The initializer to use for the weights.
 
     Methods
@@ -27,6 +27,7 @@ class MLP(torch.nn.Module):
     _init_: initialization process
     foward: predict the output of model
     """
+
     def __init__(
         self,
         input_size: int,
@@ -45,7 +46,7 @@ class MLP(torch.nn.Module):
             num_classes (int): The number of classes C.
             activation (torch.nn.func): The activation function to use in the hidden layer.
             initializer (torch.nn.init): The initializer to use for the weights.
-        
+
         Returns:
             None
         """
@@ -67,7 +68,7 @@ class MLP(torch.nn.Module):
         # initialize the weight using the first layer
         self.init(self.layers[0].weight)
 
-    def forward(self, x:datasets) -> float:
+    def forward(self, x: datasets) -> float:
         """
         Forward pass of the network.
 
