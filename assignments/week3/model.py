@@ -1,5 +1,3 @@
-import xxlimited
-from scipy import datasets
 import torch
 from typing import Callable
 
@@ -68,7 +66,7 @@ class MLP(torch.nn.Module):
         # initialize the weight using the first layer
         self.init(self.layers[0].weight)
 
-    def forward(self, x: datasets) -> float:
+    def forward(self, x: float) -> float:
         """
         Forward pass of the network.
 
