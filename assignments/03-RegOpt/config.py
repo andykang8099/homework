@@ -6,7 +6,7 @@ from torchvision.transforms import (
     RandomRotation,
     Compose,
     ToTensor,
-    RandomHorizontalFlip,
+    RandomGrayscale,
 )
 
 
@@ -15,7 +15,7 @@ class CONFIG:
     A configuration for the parameters in model initialization
     """
 
-    batch_size = 100
+    batch_size = 128
     num_epochs = 10
     initial_learning_rate = 0.001
     initial_weight_decay = 0
@@ -33,10 +33,4 @@ class CONFIG:
         weight_decay=CONFIG.initial_weight_decay,
     )
 
-    transforms = Compose(
-        [
-            RandomRotation(degrees=30),
-            ToTensor(),
-            RandomHorizontalFlip(),
-        ]
-    )
+    transforms = Compose([RandomRotation(degrees=30), ToTensor(), RandomGrayscale()])
