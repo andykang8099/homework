@@ -15,7 +15,7 @@ class CONFIG:
     A configuration for the parameters in model initialization
     """
 
-    batch_size = 64
+    batch_size = 100
     num_epochs = 10
     initial_learning_rate = 0.001
     initial_weight_decay = 0

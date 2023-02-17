@@ -15,7 +15,7 @@ class CustomLRScheduler(_LRScheduler):
         optimizer,
         base_lr=0.001,
         max_lr=0.01,
-        step_size_up=2000,
+        step_size_up=3000,
         step_size_down=None,
         mode="triangular",
         gamma=1.0,
