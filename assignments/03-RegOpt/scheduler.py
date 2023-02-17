@@ -1,5 +1,4 @@
-from typing import List
-from torch.optim import lr_scheduler
+#from typing import List
 from torch.optim.lr_scheduler import _LRScheduler
 import weakref
 import warnings
