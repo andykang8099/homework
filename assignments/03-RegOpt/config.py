@@ -7,7 +7,7 @@ from torchvision.transforms import (
     Compose,
     ToTensor,
     RandomGrayscale,
-    Normalize
+    Normalize,
 )
 
 
@@ -34,5 +34,10 @@ class CONFIG:
         weight_decay=CONFIG.initial_weight_decay,
     )
 
-    transforms = Compose([ToTensor(), RandomRotation(degrees=30),
-                          Normalize(mean=[0.485, 0.456, 0.406],std=[0.229, 0.224, 0.225])])
+    transforms = Compose(
+        [
+            ToTensor(),
+            RandomRotation(degrees=30),
+            Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ]
+    )
