@@ -13,8 +13,8 @@ class CustomLRScheduler(_LRScheduler):
     def __init__(
         self,
         optimizer,
-        base_lr=0.0005,
-        max_lr=0.005,
+        base_lr=5e-4,
+        max_lr=5e-3,
         step_size_up=2000,
         step_size_down=None,
         mode="triangular",
