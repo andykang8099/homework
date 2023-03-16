@@ -2,11 +2,13 @@
     "assignment_name": "Convolutions",
     "contributors": [
         {
-            "name": "Change this to your name",
-            "pennkey": "MyPennKey"
+            "name": "Yuzhuo Kang",
+            "pennkey": "yuzhuok"
         }
     ],
     "sources": [
-        "Don't forget to list your sources/attribution here!"
+        "https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html",
+        "https://pytorch.org/docs/stable/generated/torch.nn.functional.max_pool2d.html",
+        "https://pytorch.org/docs/stable/generated/torch.nn.LeakyReLU.html"
     ]
 }
