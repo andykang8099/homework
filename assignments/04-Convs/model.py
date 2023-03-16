@@ -17,7 +17,7 @@ class Model(torch.nn.Module):
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)  # (27-2)/2 + 1 = 13
         self.fc = nn.Linear(32 * 6 * 6, num_classes)
 
-    def __forward__(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.pool(F.leaky_relu(self.bn1(self.conv1(x))))
         x = self.pool(F.leaky_relu(self.bn2(self.conv2(x))))
         x = x.view(-1, 32 * 6 * 6)
