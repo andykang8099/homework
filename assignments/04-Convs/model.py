@@ -19,7 +19,7 @@ class Model(torch.nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """_summary_"""
 
-        x = self.pool(F.leaky_relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv1(x)))
         x = x.view(-1, 16 * 15 * 15)
         x = self.fc(x)
         return x
