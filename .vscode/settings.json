@@ -10,5 +10,6 @@
         "./assignments",
         "-p",
         "*test.py"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic"
 }

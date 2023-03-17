@@ -126,7 +126,7 @@ def compute_accuracy(
         num_correct += torch.sum(predictions == y).item()
     # Compute the accuracy:
     accuracy = num_correct / len(data_loader.dataset)
-    # Return the accuracy
+    # Return the accura cy
     return accuracy
 
 
