@@ -18,11 +18,11 @@ class Model(torch.nn.Module):
         # self.conv2 = nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3, padding=0)
         self.bn1 = nn.BatchNorm2d(8)
 
-        self.bn2 = nn.BatchNorm1d(36)
+        self.bn2 = nn.BatchNorm1d(64)
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)  # (27-2)/2 + 1 = 13
         # self.fc1 = nn.Linear(12 * 16 * 16, 256)
-        self.fc2 = nn.Linear(8 * 8 * 8, 32)
-        self.fc1 = nn.Linear(32, num_classes)
+        self.fc2 = nn.Linear(8 * 8 * 8, 64)
+        self.fc1 = nn.Linear(64, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """_summary_"""
