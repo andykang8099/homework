@@ -6,7 +6,7 @@ from torchvision.transforms import Compose, ToTensor, Normalize
 
 
 class CONFIG:
-    batch_size = 60
+    batch_size = 80
     num_epochs = 6
 
     optimizer_factory: Callable[
