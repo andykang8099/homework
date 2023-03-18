@@ -25,7 +25,7 @@ class Model(torch.nn.Module):
         self.fc1 = nn.Linear(64, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """_summary_"""
+        """_forward_"""
 
         x = self.pool(F.relu(self.bn1(self.conv1(x))))
         # x = F.relu(self.bn2(self.conv2(x))))
