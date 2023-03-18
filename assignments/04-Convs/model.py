@@ -21,8 +21,8 @@ class Model(torch.nn.Module):
         self.bn2 = nn.BatchNorm1d(36)
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)  # (27-2)/2 + 1 = 13
         # self.fc1 = nn.Linear(12 * 16 * 16, 256)
-        self.fc2 = nn.Linear(8 * 8 * 8, 36)
-        self.fc1 = nn.Linear(36, num_classes)
+        self.fc2 = nn.Linear(8 * 8 * 8, 32)
+        self.fc1 = nn.Linear(32, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """_summary_"""
