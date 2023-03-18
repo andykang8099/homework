@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 
 class Model(torch.nn.Module):
-    """_summary_"""
+    """_model_"""
 
     def __init__(self, num_channels: int, num_classes: int) -> None:
         super(Model, self).__init__()
