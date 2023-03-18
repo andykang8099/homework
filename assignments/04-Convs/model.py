@@ -10,19 +10,19 @@ class Model(torch.nn.Module):
         super(Model, self).__init__()
         self.conv1 = nn.Conv2d(
             in_channels=num_channels,
-            out_channels=10,
+            out_channels=16,
             kernel_size=2,
-            stride=2,
-            padding=0,
+            stride=3,
+            padding=1,
         )
         # self.conv2 = nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3, padding=0)
-        self.bn1 = nn.BatchNorm2d(10)
+        self.bn1 = nn.BatchNorm2d(16)
 
         self.bn2 = nn.BatchNorm1d(256)
         # self.bn3 = nn.BatchNorm1d(256)
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)  # (27-2)/2 + 1 = 13
         # self.fc1 = nn.Linear(12 * 16 * 16, 256)
-        self.fc2 = nn.Linear(10 * 8 * 8, 256)
+        self.fc2 = nn.Linear(16 * 5 * 5, 256)
         # self.fc3 = nn.Linear(512, 256)
         # self.dropout = nn.Dropout(0.1)
         self.fc1 = nn.Linear(256, num_classes)
@@ -32,7 +32,7 @@ class Model(torch.nn.Module):
 
         x = self.pool(F.relu(self.bn1(self.conv1(x))))
         # x = F.relu(self.bn2(self.conv2(x))))
-        x = x.view(-1, 10 * 8 * 8)
+        x = x.view(-1, 16 * 5 * 5)
         x = F.relu(self.bn2(self.fc2(x)))
 
         # x = F.relu(self.bn3(self.fc3(x)))
