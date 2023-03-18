@@ -20,7 +20,7 @@ class Model(torch.nn.Module):
 
         self.bn2 = nn.BatchNorm1d(256)
         # self.bn3 = nn.BatchNorm1d(256)
-        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)  # (27-2)/2 + 1 = 13
+        self.pool = nn.MaxPool2d(kernel_size=2,stride=2)  # (27-2)/2 + 1 = 13
         # self.fc1 = nn.Linear(12 * 16 * 16, 256)
         self.fc2 = nn.Linear(16 * 5 * 5, 256)
         # self.fc3 = nn.Linear(512, 256)
