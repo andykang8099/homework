@@ -13,7 +13,7 @@ class Model(torch.nn.Module):
             out_channels=6,
             kernel_size=2,
             stride=2,
-            padding=0,
+            padding=1,
         )
         # self.conv2 = nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3, padding=0)
         self.bn1 = nn.BatchNorm2d(6)
