@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 from collections import deque
 
+
 class DQN(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(DQN, self).__init__()
@@ -13,17 +14,19 @@ class DQN(nn.Module):
             nn.ReLU(),
             nn.Linear(128, 64),
             nn.ReLU(),
-            nn.Linear(64, output_dim)
+            nn.Linear(64, output_dim),
         )
 
     def forward(self, x):
         return self.layers(x)
+
 
 class Agent:
     """
     Disallow missing docstrings.
 
     """
+
     def __init__(
         self, action_space: gym.spaces.Discrete, observation_space: gym.spaces.Box
     ):
@@ -36,8 +39,12 @@ class Agent:
         self.epsilon_min = 0.01
         self.gamma = 0.99
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.q_network = DQN(self.observation_space.shape[0], self.action_space.n).to(self.device)
-        self.target_network = DQN(self.observation_space.shape[0], self.action_space.n).to(self.device)
+        self.q_network = DQN(self.observation_space.shape[0], self.action_space.n).to(
+            self.device
+        )
+        self.target_network = DQN(
+            self.observation_space.shape[0], self.action_space.n
+        ).to(self.device)
         self.optimizer = optim.Adam(self.q_network.parameters(), lr=0.001)
         self.loss_fn = nn.MSELoss()
         self.prev_observation = None
@@ -45,7 +52,7 @@ class Agent:
 
     def act(self, observation: gym.spaces.Box) -> gym.spaces.Discrete:
         """
-    Disallow missing docstrings.
+        Disallow missing docstrings.
 
         """
         if np.random.rand() < self.epsilon:
@@ -68,7 +75,15 @@ class Agent:
 
         """
         if self.prev_observation is not None and self.prev_action is not None:
-            self.memory.append((self.prev_observation, self.prev_action, reward, observation, terminated))
+            self.memory.append(
+                (
+                    self.prev_observation,
+                    self.prev_action,
+                    reward,
+                    observation,
+                    terminated,
+                )
+            )
         self.epsilon = max(self.epsilon_min, self.epsilon_decay * self.epsilon)
 
         if len(self.memory) < self.batch_size:
@@ -79,7 +94,9 @@ class Agent:
         states = torch.tensor(np.vstack(states).astype(np.float32)).to(self.device)
         actions = torch.tensor([action for action in actions]).long().to(self.device)
         rewards = torch.from_numpy(np.array(rewards)).float().to(self.device)
-        next_states = torch.tensor(np.vstack(next_states).astype(np.float32)).to(self.device)
+        next_states = torch.tensor(np.vstack(next_states).astype(np.float32)).to(
+            self.device
+        )
         dones = torch.tensor([float(done) for done in dones]).to(self.device)
 
         curr_Q = self.q_network(states).gather(1, actions.unsqueeze(1))
@@ -96,8 +113,3 @@ class Agent:
     def store_transition(self, observation, action):
         self.prev_observation = observation
         self.prev_action = action
-
-
-
-
-
