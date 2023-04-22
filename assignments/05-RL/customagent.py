@@ -64,7 +64,7 @@ class Agent:
         truncated: bool,
     ) -> None:
         """
-    Disallow missing docstrings.
+        learn function
 
         """
         if self.prev_observation is not None and self.prev_action is not None:
