@@ -4,7 +4,7 @@ import numpy as np
 
 class Agent:
     """
-    Disallow missing docstrings.
+    Disallow missing docstrings
 
     """
 
@@ -29,7 +29,7 @@ class Agent:
 
     def act(self, observation: gym.spaces.Box) -> gym.spaces.Discrete:
         """
-        Disallow missing docstrings.
+        Disallow missing docstrings
 
         """
         discrete_obs = self.discretize(observation)
@@ -45,7 +45,7 @@ class Agent:
         truncated: bool,
     ) -> None:
         """
-        Disallow missing docstrings.
+        Disallow missing docstrings
 
         """
         discrete_obs = self.discretize(observation)
