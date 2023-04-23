@@ -1,8 +1,8 @@
 import gymnasium as gym
 import numpy as np
 import torch
-import torch.nn as nn
 import torch.optim as optim
+import torch.nn as nn
 
 
 class DQN(nn.Module):
