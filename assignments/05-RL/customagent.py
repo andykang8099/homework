@@ -34,7 +34,7 @@ class Agent:
         self.observation_space = observation_space
         self.memory = []
         self.batch_size = 512
-        self.epsilon = 0.8
+        self.epsilon = 1.0
         self.epsilon_decay = 0.995
         self.epsilon_min = 0.01
         self.gamma = 0.99
@@ -102,10 +102,19 @@ class Agent:
         )
 
         # Compute Q-values and target Q-values
+
         q_values = self.q_network(obs_batch)
         action_batch = torch.argmax(q_values, dim=1, keepdim=True)
         q_values = q_values.gather(1, action_batch)
-        next_q_values = self.target_network(next_obs_batch).max(1)[0].detach()
+
+        # Use the Q-network for action selection in the next state
+        next_action_batch = torch.argmax(
+            self.q_network(next_obs_batch), dim=1, keepdim=True
+        )
+
+        # Use the target network for computing the target Q-values
+        next_q_values = self.target_network(next_obs_batch)
+        next_q_values = next_q_values.gather(1, next_action_batch).detach()
         target_q_values = reward_batch + (1 - done_batch) * self.gamma * next_q_values
 
         # Update Q-values using the Bellman equation
