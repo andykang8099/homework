@@ -11,7 +11,9 @@ class DQN(nn.Module):
         self.layers = nn.Sequential(
             nn.Linear(input_dim, 128),
             nn.ReLU(),
-            nn.Linear(128, output_dim),
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, output_dim),
         )
 
     def forward(self, x):
@@ -32,7 +34,7 @@ class Agent:
         self.observation_space = observation_space
         self.memory = []
         self.batch_size = 512
-        self.epsilon = 1.0
+        self.epsilon = 0.8
         self.epsilon_decay = 0.995
         self.epsilon_min = 0.01
         self.gamma = 0.99
