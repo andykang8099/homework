@@ -27,7 +27,9 @@ class Agent:
     Agent
     """
 
-    def __init__(self, action_space, observation_space):
+    def __init__(
+        self, action_space: gym.spaces.Discrete, observation_space: gym.spaces.Box
+    ):
         self.action_space = action_space
         self.observation_space = observation_space
         self.memory = []
@@ -47,7 +49,7 @@ class Agent:
         self.optimizer = optim.Adam(self.q_network.parameters(), lr=0.001)
         self.loss_fn = nn.MSELoss()
 
-    def act(self, observation):
+    def act(self, observation: gym.spaces.Box) -> gym.spaces.Discrete:
         """
         Selects an action to take given an observation using an epsilon-greedy policy.
 
@@ -65,7 +67,13 @@ class Agent:
                 action_values = self.q_network(state)
             return torch.argmax(action_values).item()
 
-    def learn(self, observation, reward, terminated, truncated):
+    def learn(
+        self,
+        observation: gym.spaces.Box,
+        reward: float,
+        terminated: bool,
+        truncated: bool,
+    ) -> None:
         """
         Updates the Q-values of the agent based on the observed reward and transition.
 
