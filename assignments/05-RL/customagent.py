@@ -32,7 +32,7 @@ class Agent:
     ):
         self.action_space = action_space
         self.observation_space = observation_space
-        self.memory = []  # set the memory
+        self.memory = []
         self.batch_size = 512
         self.epsilon = 1.0
         self.epsilon_decay = 0.995
