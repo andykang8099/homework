@@ -17,8 +17,8 @@ class DQN(nn.Module):
         )
 
     def forward(self, x):
-        batch_size = x.size(0)  # get batch size explicitly
-        x = x.view(batch_size, -1)  # flatten input tensor
+        batch_size = x.size(0)  
+        x = x.view(batch_size, -1) 
         return self.layers(x)
 
 
