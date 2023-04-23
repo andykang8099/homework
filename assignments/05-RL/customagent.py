@@ -9,8 +9,8 @@ class DQN(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(DQN, self).__init__()
         self.layers = nn.Sequential(
-            nn.Linear(input_dim, 64),
-            nn.Linear(64, output_dim),
+            nn.Linear(input_dim, 128),
+            nn.Linear(128, output_dim),
         )
 
     def forward(self, x):
@@ -30,7 +30,7 @@ class Agent:
         self.action_space = action_space
         self.observation_space = observation_space
         self.memory = []
-        self.batch_size = 400
+        self.batch_size = 512
         self.epsilon = 1.0
         self.epsilon_decay = 0.995
         self.epsilon_min = 0.01
